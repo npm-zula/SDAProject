@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import static HSMS.HSMS.getHsms;
 
 public class Test extends Application {
     private Stage stage;
@@ -22,7 +25,8 @@ public class Test extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        getHsms().start();
         launch();
     }
 

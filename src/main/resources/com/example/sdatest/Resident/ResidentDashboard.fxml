@@ -69,7 +69,7 @@
                         <Font name="Impact" size="29.0" />
                     </font>
                 </Button>
-                <Button layoutX="322.0" layoutY="122.0" mnemonicParsing="false" prefHeight="123.0" prefWidth="294.0" text="Change Password" textFill="#2d75e8" GridPane.rowIndex="2">
+                <Button layoutX="322.0" layoutY="122.0" mnemonicParsing="false" onAction="#ApplicationStatusBtn" prefHeight="123.0" prefWidth="294.0" text="Application Status" textFill="#2d75e8" GridPane.rowIndex="2">
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>

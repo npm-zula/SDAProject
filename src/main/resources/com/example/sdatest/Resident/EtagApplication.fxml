@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
@@ -78,38 +79,38 @@
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="64.0" layoutY="98.0" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: ffff;" />
+                                <TextField fx:id="ETvNo" layoutX="64.0" layoutY="98.0" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: ffff;" />
                                 <Label graphicTextGap="7.0" layoutX="186.0" layoutY="62.0" text="Vehicle Type">
                                     <font>
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="58.0" layoutY="196.0" />
+                                <TextField fx:id="ETofname" layoutX="58.0" layoutY="196.0" />
                                 <Label graphicTextGap="7.0" layoutX="58.0" layoutY="165.0" text="Owner  First Name">
                                     <font>
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="258.0" layoutY="196.0" />
+                                <TextField fx:id="ETolname" layoutX="258.0" layoutY="196.0" />
                                 <Label graphicTextGap="7.0" layoutX="258.0" layoutY="165.0" text="Owner  Last Name">
                                     <font>
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="466.0" layoutY="196.0" />
+                                <TextField fx:id="EToCNIC" layoutX="466.0" layoutY="196.0" />
                                 <Label graphicTextGap="7.0" layoutX="466.0" layoutY="165.0" text="Owner CNIC">
                                     <font>
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <Button layoutX="296.0" layoutY="393.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="74.0" text="APPLY">
+                                <Button layoutX="296.0" layoutY="393.0" mnemonicParsing="false" onAction="#createETApplication" prefHeight="34.0" prefWidth="74.0" text="APPLY">
                                     <font>
                                         <Font name="System Bold" size="12.0" />
                                     </font>
                                 </Button>
                                 <Line endX="482.0" layoutX="163.0" layoutY="152.0" startX="-100.0" />
                                 <Line endX="487.0" layoutX="159.0" layoutY="248.0" startX="-100.0" />
-                        <ChoiceBox layoutX="185.0" layoutY="98.0" prefHeight="25.0" prefWidth="98.0">
+                        <ChoiceBox fx:id="ETvType" layoutX="185.0" layoutY="98.0" prefHeight="25.0" prefWidth="98.0">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
                                     <String fx:id="vehicletype1" fx:value="car" />
@@ -122,13 +123,13 @@
                               <Font name="Impact" size="17.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="328.0" layoutY="98.0" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: ffff;" />
+                        <TextField fx:id="ETvMake" layoutX="328.0" layoutY="98.0" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: ffff;" />
                         <Label graphicTextGap="7.0" layoutX="465.0" layoutY="62.0" text="Vehicle year">
                            <font>
                               <Font name="Impact" size="17.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="468.0" layoutY="98.0" prefHeight="25.0" prefWidth="98.0">
+                        <ChoiceBox fx:id="ETvYear" layoutX="468.0" layoutY="98.0" prefHeight="25.0" prefWidth="98.0">
                                 <items>
                                     <FXCollections fx:factory="observableArrayList">
                                         <String fx:id="1" fx:value="2023" />
@@ -154,9 +155,12 @@
                               <Font name="Impact" size="17.0" />
                            </font>
                         </Label>
-                        <RadioButton layoutX="63.0" layoutY="317.0" mnemonicParsing="false" text="YES" />
-                        <RadioButton layoutX="182.0" layoutY="317.0" mnemonicParsing="false" text="NO" />
-                        <TextField layoutX="612.0" layoutY="98.0" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: ffff;" />
+                        <RadioButton fx:id="ETrbYES" layoutX="63.0" layoutY="317.0" mnemonicParsing="false" text="YES">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="vOthersGroup" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="ERrbNO" layoutX="182.0" layoutY="317.0" mnemonicParsing="false" text="NO" toggleGroup="$vOthersGroup" />
+                        <TextField fx:id="ETengineSize" layoutX="612.0" layoutY="98.0" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: ffff;" />
                         <Label graphicTextGap="7.0" layoutX="612.0" layoutY="62.0" text="Engine Size ( cc)">
                            <font>
                               <Font name="Impact" size="17.0" />

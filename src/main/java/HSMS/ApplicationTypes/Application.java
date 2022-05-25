@@ -26,6 +26,10 @@ public abstract class Application {
             return "Approved";
     }
 
+    public int getType() {
+        return type;
+    }
+
     //    Property property;
 //    Tenant tenant;
 //    int type;

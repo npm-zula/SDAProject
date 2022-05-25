@@ -3,6 +3,8 @@ package HSMS.ApplicationTypes;
 import HSMS.Applicant.Applicant;
 import HSMS.DBHandlers.ApplicationDBhandler;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ApplicationRecords {
@@ -69,6 +71,23 @@ public class ApplicationRecords {
         return temp;
     }
 
+    public Application createTransferApplication(Applicant applicant,  String RFName, String RLName,  int RCnic, String oFName, String oLName,  int oCnic, String HouseNo){
+        OwnerTransferApplication temp = new OwnerTransferApplication();
+        temp.applicant = applicant;
+        temp.OFName = oFName;
+        temp.OLName = oLName;
+        temp.oCnic = oCnic;
+        temp.RCnic = RCnic;
+        temp.RFName = RFName;
+        temp.RLName = RLName;
+        temp.type = 2;
+        temp.ID = assignID();
+        temp.applicationStatus = "NE";
+        ApplicationRecord.add(temp);
+        db.saveOTApplication(temp);
+        return temp;
+    }
+
     public Application createRentApplication(Applicant applicant, String RFName, String RLName, int RCnic, String oFName, String oLName, int oCnic, int rent, int increment){
         RentingApplication temp = new RentingApplication();
         temp.applicant = applicant;
@@ -84,13 +103,12 @@ public class ApplicationRecords {
         temp.type = 3;
         temp.applicationStatus = "NE";
         ApplicationRecord.add(temp);
-
+        db.saveRentingApplication(temp);
         return temp;
     }
 
-    public Application createEtagApplication(Applicant applicant, String oFName, String oLName, int oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others){
+    public Application createEtagApplication( String oFName, String oLName, int oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others){
         EtagApplication temp = new EtagApplication();
-        temp.applicant = applicant;
         temp.OFName = oFName;
         temp.OLName = oLName;
         temp.oCnic = oCnic;
@@ -104,23 +122,73 @@ public class ApplicationRecords {
         temp.ID = assignID();
         temp.applicationStatus = "NE";
         ApplicationRecord.add(temp);
+
+        System.out.println("CREATED");
+        //db.saveEtagApplication(temp);
         return temp;
     }
 
-    public Application createTransferApplication(Applicant applicant,  String RFName, String RLName,  int RCnic, String oFName, String oLName,  int oCnic){
-        OwnerTransferApplication temp = new OwnerTransferApplication();
-        temp.applicant = applicant;
-        temp.OFName = oFName;
-        temp.OLName = oLName;
-        temp.oCnic = oCnic;
-        temp.RCnic = RCnic;
-        temp.RFName = RFName;
-        temp.RLName = RLName;
-        temp.type = 2;
-        temp.ID = assignID();
-        temp.applicationStatus = "NE";
-        ApplicationRecord.add(temp);
-        return temp;
+
+
+    public void updateRecords() throws SQLException {
+        updateOTRecords();
+        updateRTRecords();
+        updateETRecords();
+    }
+
+    public void updateOTRecords() throws SQLException {
+        ResultSet rs = db.retrieveList(2);
+        if(rs != null){
+            while(rs.next()){
+                OwnerTransferApplication temp = new OwnerTransferApplication();
+                temp.ID = rs.getInt("ID");
+                temp.OFName = rs.getString("OFName");
+                temp.OLName = rs.getString("OLName");
+                temp.oCnic = rs.getInt("oCNIC");
+                temp.RFName = rs.getString("RFName");
+                temp.RLName = rs.getString("RLName");
+                temp.RCnic = rs.getInt("RCNIC");
+                temp.type = rs.getInt("ApplicationType");
+            }
+        }
+
+    }
+
+    public void updateRTRecords() throws SQLException {
+        ResultSet rs = db.retrieveList(3);
+
+        while(rs.next()){
+            RentingApplication temp = new RentingApplication();
+            temp.ID = rs.getInt("ID");
+            temp.OFName = rs.getString("OFName");
+            temp.OLName = rs.getString("OLName");
+            temp.oCnic = rs.getInt("oCNIC");
+            temp.RFName = rs.getString("RFName");
+            temp.RLName = rs.getString("RLName");
+            temp.RCnic = rs.getInt("RCNIC");
+            temp.rent = rs.getInt("RENT");
+            temp.increment = rs.getInt("INCREMENT");
+            temp.type = rs.getInt("ApplicationType");
+        }
+    }
+
+    public void updateETRecords() throws SQLException {
+        ResultSet rs = db.retrieveList(4);
+
+        while(rs.next()){
+            EtagApplication temp = new EtagApplication();
+            temp.ID = rs.getInt("ID");
+            temp.OFName = rs.getString("OFName");
+            temp.OLName = rs.getString("OLName");
+            temp.vNo =  rs.getString("VehichleNo");
+            temp.vType  = rs.getString("vehicleType");
+            temp.vMake = rs.getString("VehicleMake");
+            temp.vYear = rs.getString("VehicleYear");
+            temp.vEngineSize = rs.getInt("EngineSize");
+            temp.others = rs.getInt("Others") == 1;
+
+            temp.type = rs.getInt("ApplicationType");
+        }
     }
 
 

@@ -7,6 +7,11 @@ public class OwnerTransferApplication extends Application {
     String RFName;
     String RLName;
     int RCnic;
+    String HouseNo;
+
+    public String getHouseNo() {
+        return HouseNo;
+    }
 
     public String getOFName() {
         return OFName;

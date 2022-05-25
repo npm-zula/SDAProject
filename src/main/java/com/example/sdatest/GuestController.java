@@ -63,7 +63,7 @@ public class GuestController {
 
     @FXML
     public void ApplicationStatusPopUP(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Guest/ApplicationStatusPopUP.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Guest/ApplicationStatusPopUPscreen.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
 
         Application application = getHsms().getApplicationStatus(Integer.parseInt(appIDStatusField.getText()));
@@ -97,7 +97,7 @@ public class GuestController {
         Parent root1;
         String appID = String.valueOf(app.getID());
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicantSuccessPopUP.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicantSuccessPopUPscreen.fxml"));
         root1 = loader.load();
 
         popUPcontroller p = loader.getController();
@@ -145,7 +145,7 @@ public class GuestController {
         Parent root1;
         String appID = String.valueOf(app.getID());
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicationSuccessPopUP.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicationSuccessPopUPscreen.fxml"));
         root1 = loader.load();
 
         popUPcontroller p = loader.getController();
