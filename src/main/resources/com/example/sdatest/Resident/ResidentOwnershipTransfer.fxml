@@ -37,26 +37,26 @@
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="57.0" layoutY="90.0" />
+                                <TextField fx:id="afName" layoutX="57.0" layoutY="90.0" />
                                 <Label graphicTextGap="7.0" layoutX="323.0" layoutY="62.0" text="Last Name">
                                     <font>
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="323.0" layoutY="90.0" />
-                                <TextField layoutX="57.0" layoutY="168.0" />
+                                <TextField fx:id="alName" layoutX="323.0" layoutY="90.0" />
+                                <TextField fx:id="aCNIC" layoutX="57.0" layoutY="168.0" />
                                 <Label graphicTextGap="7.0" layoutX="59.0" layoutY="138.0" text="CNIC Number">
                                     <font>
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="57.0" layoutY="258.0" prefHeight="25.0" prefWidth="232.0" />
+                                <TextField fx:id="aEmail" layoutX="57.0" layoutY="258.0" prefHeight="25.0" prefWidth="232.0" />
                                 <Label graphicTextGap="7.0" layoutX="59.0" layoutY="228.0" text="Email Address">
                                     <font>
                                         <Font name="Impact" size="17.0" />
                                     </font>
                                 </Label>
-                                <Button layoutX="267.0" layoutY="338.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="109.0" text="Done" textOverrun="CLIP">
+                                <Button layoutX="267.0" layoutY="338.0" mnemonicParsing="false" onAction="#createApplicant" prefHeight="44.0" prefWidth="109.0" text="Done" textOverrun="CLIP">
                                     <font>
                                         <Font name="Impact" size="18.0" />
                                     </font>

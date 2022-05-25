@@ -53,21 +53,6 @@ public class ApplicantRecords {
     public Applicant applicantCreation(String fname, String lname, int cninc, String email, boolean check){
         // owner DBHandler check if applicant cnic  ==  registered owner CNIC
 
-//        public static ArrayList<Customer> getAllCustomer() throws ClassNotFoundException, SQLException {
-//            Connection conn=DBConnection.getDBConnection().getConnection();
-//            Statement stm;
-//            stm = conn.createStatement();
-//            String sql = "Select * From Customer";
-//            ResultSet rst;
-//            rst = stm.executeQuery(sql);
-//            ArrayList<Customer> customerList = new ArrayList<>();
-//            while (rst.next()) {
-//                Customer customer = new Customer(rst.getString("id"), rst.getString("name"), rst.getString("address"), rst.getDouble("salary"));
-//                customerList.add(customer);
-//            }
-//            return customerList;
-//        }
-
         Applicant temp = new Applicant(assignID(),fname,lname,cninc,email);
         ApplicantRecords.add(temp);
         db.saveApplicant(temp);

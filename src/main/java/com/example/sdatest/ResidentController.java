@@ -1,5 +1,6 @@
 package com.example.sdatest;
 
+import HSMS.Applicant.Applicant;
 import HSMS.Complaint.Complaint;
 import HSMS.HSMS;
 import javafx.event.ActionEvent;
@@ -79,7 +80,7 @@ public class ResidentController {
         stage.show();
     }
 
-
+    //COMPLAINTS
     @FXML
     private TextField emailTextField;
 
@@ -125,6 +126,39 @@ public class ResidentController {
         checkComplaintProblemLabel.setText(temp.getProblem());
         checkComplaintStatusLabel.setText(temp.getComplaintStatus());
 
+    }
+
+
+    //OT APPLICATION
+
+    @FXML
+    private TextField aCNIC;
+
+    @FXML
+    private TextField aEmail;
+
+    @FXML
+    private TextField afName;
+
+    @FXML
+    private TextField alName;
+
+
+    @FXML
+    void createApplicant(ActionEvent event) throws IOException {
+        Applicant app =  getHsms().createApplicant(afName.getText(),alName.getText(),Integer.parseInt(aCNIC.getText()), aEmail.getText(),true);
+        Parent root1;
+        String appID = String.valueOf(app.getID());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Resident/ApplicantSuccessPopUP.fxml"));
+        root1 = loader.load();
+
+        popUPcontroller p = loader.getController();
+        p.displayapplicantID(appID);
+
+        Stage stage1 = new Stage();
+        stage1.setScene(new Scene(root1));
+        stage1.show();
     }
 
 

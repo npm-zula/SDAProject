@@ -47,6 +47,7 @@ public class HSMS {
     public Application propertyTransApplication(Applicant applicant,String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic){
         return  applicationRecords.createTransferApplication(applicant,RFName,RLName,RCNIC,oFName,oLName,oCnic);
     }
+
     public Application propertyRentingApplication(Applicant applicant,String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic, int rent, int increment){
         return  applicationRecords.createRentApplication(applicant,RFName,RLName,RCNIC,oFName,oLName,oCnic, rent, increment);
     }
