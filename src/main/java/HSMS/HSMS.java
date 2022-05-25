@@ -50,19 +50,19 @@ public class HSMS {
         return null;
     }
 
-    public Application propertyTransApplication(int applicantID,String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic, String HouseNo){
-        Applicant applicant = applicantRecords.getApplicant(applicantID);
+    public Application propertyTransApplication(String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic, String HouseNo){
 
-        return  applicationRecords.createTransferApplication(applicant,RFName,RLName,RCNIC,oFName,oLName,oCnic,HouseNo);
+
+        return  applicationRecords.createTransferApplication(RFName,RLName,RCNIC,oFName,oLName,oCnic,HouseNo);
     }
 
-    public Application propertyRentingApplication(int applicantID,String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic, int rent, int increment){
-            Applicant applicant = applicantRecords.getApplicant(applicantID);
+    public Application propertyRentingApplication(String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic, int rent, int increment){
 
-        return  applicationRecords.createRentApplication(applicant,RFName,RLName,RCNIC,oFName,oLName,oCnic, rent, increment);
+
+        return  applicationRecords.createRentApplication(RFName,RLName,RCNIC,oFName,oLName,oCnic, rent, increment);
     }
 
-    public Application etagApplication( String oFName, String oLName, int oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others){
+    public Application etagApplication(String oFName, String oLName, int oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others){
         return  applicationRecords.createEtagApplication(oFName,oLName,oCnic,vNo,vType,vYear,vMake,vEngineSize,others);
     }
 

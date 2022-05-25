@@ -190,9 +190,8 @@ public class ResidentController {
 
     @FXML
     void createOTApplication(ActionEvent actionEvent) throws IOException {
-        Application app = getHsms().propertyTransApplication(Integer.parseInt(OTapplicantID.getText()),OTrfname.getText(),OTrlname.getText(),Integer.parseInt(OTrCNIC.getText()),
+        Application app = getHsms().propertyTransApplication(OTrfname.getText(),OTrlname.getText(),Integer.parseInt(OTrCNIC.getText()),
                 OTofname.getText(),OTolname.getText(),Integer.parseInt(OToCNIC.getText()),OThouseNo.getText());
-
 
         Parent root1;
         String appID = String.valueOf(app.getID());
@@ -242,7 +241,7 @@ public class ResidentController {
 
     @FXML
     void createRPApplication(ActionEvent actionEvent) throws IOException {
-        Application app = getHsms().propertyRentingApplication(Integer.parseInt(RPApplicantID.getText()),RPtfname.getText(),RPtlname.getText(),Integer.parseInt(RPtCNIC.getText()),
+        Application app = getHsms().propertyRentingApplication(RPtfname.getText(),RPtlname.getText(),Integer.parseInt(RPtCNIC.getText()),
                 RPofname.getText(),RPolname.getText(),Integer.parseInt(RPoCNIC.getText()),Integer.parseInt(RPrent.getText()),Integer.parseInt(RPincrement.getText()));
 
         Parent root1;

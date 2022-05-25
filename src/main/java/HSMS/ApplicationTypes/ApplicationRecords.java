@@ -71,9 +71,8 @@ public class ApplicationRecords {
         return temp;
     }
 
-    public Application createTransferApplication(Applicant applicant,  String RFName, String RLName,  int RCnic, String oFName, String oLName,  int oCnic, String HouseNo){
+    public Application createTransferApplication(String RFName, String RLName,  int RCnic, String oFName, String oLName,  int oCnic, String HouseNo){
         OwnerTransferApplication temp = new OwnerTransferApplication();
-        temp.applicant = applicant;
         temp.OFName = oFName;
         temp.OLName = oLName;
         temp.oCnic = oCnic;
@@ -88,9 +87,8 @@ public class ApplicationRecords {
         return temp;
     }
 
-    public Application createRentApplication(Applicant applicant, String RFName, String RLName, int RCnic, String oFName, String oLName, int oCnic, int rent, int increment){
+    public Application createRentApplication(String RFName, String RLName, int RCnic, String oFName, String oLName, int oCnic, int rent, int increment){
         RentingApplication temp = new RentingApplication();
-        temp.applicant = applicant;
         temp.OFName = oFName;
         temp.OLName = oLName;
         temp.oCnic = oCnic;
