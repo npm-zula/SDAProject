@@ -30,7 +30,7 @@ public class HSMS {
 
 
     public void start() throws SQLException {
-        applicationRecords.updateRecords();
+      //  applicationRecords.updateRecords();
 
     }
 

@@ -29,22 +29,22 @@
         <CLASSES />
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/adaptive" />
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/alwaysencrypted" />
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/azureactivedirectoryauthentication" />
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/connections" />
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/constrained" />
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/dataclassification" />
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/datatypes" />
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/resultsets" />
-          <root url="file://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/samples/sparse" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/adaptive" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/alwaysencrypted" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/azureactivedirectoryauthentication" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/connections" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/constrained" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/dataclassification" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/datatypes" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/resultsets" />
+          <root url="file://C:/Users/software/sqljdbc_10.2/enu/samples/sparse" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre8.jar!/" />
+          <root url="jar://C:/Users/software/sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -53,7 +53,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre11.jar!/" />
+          <root url="jar://C:/Users/software/sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre11.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -62,7 +62,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../software/sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar!/" />
+          <root url="jar://C:/Users/software/sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -77,5 +77,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
