@@ -31,7 +31,10 @@ public class HSMS {
 
     public void start() throws SQLException {
         applicationRecords.updateRecords();
+        complaintRecords.updateRecords();
+        applicantRecords.updateRecords();
 
+        applicationRecords.getApplications();
     }
 
 
@@ -52,7 +55,6 @@ public class HSMS {
 
     public Application propertyTransApplication(String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic, String HouseNo){
 
-
         return  applicationRecords.createTransferApplication(RFName,RLName,RCNIC,oFName,oLName,oCnic,HouseNo);
     }
 
@@ -66,12 +68,12 @@ public class HSMS {
         return  applicationRecords.createEtagApplication(oFName,oLName,oCnic,vNo,vType,vYear,vMake,vEngineSize,others);
     }
 
-    public Application getApplicationStatus(int appID){
-            return applicationRecords.getApplication(appID);
+    public int complaintRegistration(String HouseNo, String problem, String email){
+        return complaintRecords.launchComplaint(HouseNo, email, problem).getID();
     }
 
-    public int complaintRegistration(String HouseNo, String problem, String email){
-           return complaintRecords.launchComplaint(HouseNo, email, problem).getID();
+    public Application getApplicationStatus(int appID){
+            return applicationRecords.getApplication(appID);
     }
 
     public Complaint getComplaint(int ID){

@@ -1,7 +1,10 @@
 package HSMS.Complaint;
 
+import HSMS.ApplicationTypes.OwnerTransferApplication;
 import HSMS.DBHandlers.ComplaintsDBHandler;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ComplaintRecords {
@@ -50,12 +53,25 @@ public class ComplaintRecords {
                         check = true;
                     }
                 }
-
                 //SQL
                 db.saveComplaint(temp);
                 ComplaintRecord.add(temp);
 
                 return temp;
+    }
+
+    public void updateRecords() throws SQLException {
+        ResultSet rs = db.retrieveList();
+        if(rs != null){
+            while(rs.next()){
+                Complaint temp = new Complaint();
+                temp.ID = rs.getInt("ID");
+                temp.houseNo = rs.getString("HouseNo");
+                temp.emailAddress = rs.getString("EmailAddress");
+                temp.problem = rs.getString("Problem");
+            }
+        }
+
     }
 
 

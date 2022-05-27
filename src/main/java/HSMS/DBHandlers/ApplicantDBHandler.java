@@ -5,6 +5,7 @@ import HSMS.Applicant.Applicant;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class ApplicantDBHandler {
 
@@ -31,6 +32,24 @@ public class ApplicantDBHandler {
     }
 
 
+    public ResultSet retrieveList() {
+        String sql;
+        ResultSet rs;
+        try {
+            sql = "select * from Applicants";
+            String url = "jdbc:jtds:sqlserver://ZULA:1433/newHSMS;instance=SQLEXPRESS";
+            //String url ="jdbc:sqlserver://ZULA:1433;databaseName=HSMS;integratedSecurity=true";
+            Connection conn = DriverManager.getConnection(url, "User", "qwerty");
+            PreparedStatement p = conn.prepareStatement(sql);
+            rs = p.executeQuery();
+            return rs;
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+
+        }
+        return null;
+    }
 
 
 }

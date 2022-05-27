@@ -13,7 +13,7 @@ public class ApplicationRecords {
     ApplicationDBhandler db = new ApplicationDBhandler();
 
 
-    public int assignID(){
+    private int assignID(){
         int t = 0;
         boolean check = false;
         while(!check){
@@ -25,7 +25,7 @@ public class ApplicationRecords {
         return t;
     }
 
-    public int genID(){
+    private int genID(){
         int min = 10000;
         int max = 20000;
 
@@ -34,7 +34,7 @@ public class ApplicationRecords {
         return tempID;
     }
 
-    public boolean exists(int ID){
+    private boolean exists(int ID){
         for(Application a: ApplicationRecord){
             if (a.getID() == ID)
                 return true;
@@ -122,17 +122,38 @@ public class ApplicationRecords {
         ApplicationRecord.add(temp);
 
         System.out.println("CREATED");
-        //db.saveEtagApplication(temp);
+        db.saveEtagApplication(temp);
         return temp;
     }
-
-
 
     public void updateRecords() throws SQLException {
         updateOTRecords();
         updateRTRecords();
         updateETRecords();
+        updateRegRecords();
     }
+
+
+    public void updateRegRecords() throws SQLException {
+        ResultSet rs = db.retrieveList(1);
+        if(rs != null){
+            while(rs.next()){
+                RegistrationApplication temp = new RegistrationApplication();
+                temp.ID = rs.getInt("ID");
+                temp.OFName = rs.getString("OFName");
+                temp.OLName = rs.getString("OLName");
+                temp.oCnic = rs.getInt("oCNIC");
+                temp.age = rs.getInt("oage");
+                temp.type = rs.getInt("ApplicationType");
+                temp.applicant.setFirstName(rs.getString("AFirstName"));
+                temp.applicant.setLastName(rs.getString("ALastName"));
+                temp.applicant.setCnic(rs.getInt("Acnic"));
+                temp.applicant.setEmailAddress(rs.getString("AEmailAddress"));
+                ApplicationRecord.add(temp);
+            }
+        }
+    }
+
 
     public void updateOTRecords() throws SQLException {
         ResultSet rs = db.retrieveList(2);
@@ -147,9 +168,9 @@ public class ApplicationRecords {
                 temp.RLName = rs.getString("RLName");
                 temp.RCnic = rs.getInt("RCNIC");
                 temp.type = rs.getInt("ApplicationType");
+                ApplicationRecord.add(temp);
             }
         }
-
     }
 
     public void updateRTRecords() throws SQLException {
@@ -167,6 +188,7 @@ public class ApplicationRecords {
             temp.rent = rs.getInt("RENT");
             temp.increment = rs.getInt("INCREMENT");
             temp.type = rs.getInt("ApplicationType");
+            ApplicationRecord.add(temp);
         }
     }
 
@@ -183,14 +205,19 @@ public class ApplicationRecords {
             temp.vMake = rs.getString("VehicleMake");
             temp.vYear = rs.getString("VehicleYear");
             temp.vEngineSize = rs.getInt("EngineSize");
-            temp.others = rs.getInt("Others") == 1;
-
+            temp.others = !rs.getString("Others").equals("0");
             temp.type = rs.getInt("ApplicationType");
+            //System.out.println(rs.getInt("ApplicationType"));
+            ApplicationRecord.add(temp);
         }
     }
 
 
-
+    public void getApplications(){
+        for(Application app : ApplicationRecord){
+            System.out.println(app.getID() + " " + app.getType());
+        }
+    }
 
 
 

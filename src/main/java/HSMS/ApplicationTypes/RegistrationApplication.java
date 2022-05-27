@@ -1,5 +1,7 @@
 package HSMS.ApplicationTypes;
 
+import HSMS.Applicant.Applicant;
+
 public class RegistrationApplication extends Application{
 
     String houseNo;
@@ -73,6 +75,10 @@ public class RegistrationApplication extends Application{
 //
 //        return temp;
 //    }
+
+    RegistrationApplication(){
+        applicant = new Applicant();
+    }
 
     @Override
     public String toString() {

@@ -14,6 +14,9 @@ public class Applicant {
     private String emailAddress;
 
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public int getID() {
         return ID;
@@ -59,8 +62,9 @@ public class Applicant {
         this.emailAddress = emailAddress;
     }
 
+    public Applicant(){
 
-
+    }
 
 
 }

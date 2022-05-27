@@ -52,13 +52,7 @@ public abstract class Application {
 //    }
 
 
-    @Override
-    public String toString() {
-        return "Application{" +
-                "applicant=" + applicant +
-                ", ID=" + ID +
-                ", type=" + type +
-                ", applicationStatus='" + applicationStatus + '\'' +
-                '}';
-    }
+
+
+
 }
