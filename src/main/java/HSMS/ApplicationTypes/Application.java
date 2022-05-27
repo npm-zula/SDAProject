@@ -3,12 +3,15 @@ package HSMS.ApplicationTypes;
 import HSMS.Applicant.Applicant;
 import HSMS.Owner.Resident;
 
+import java.util.Date;
+
 public abstract class Application {
 
     Resident applicant;
     int ID;
     int type; // 1 => Registration, 2 => Transfer, 3 => Renting,  4 => ETagApplication
     String applicationStatus; // A = Approved ,  R = Rejected , NE =  NotEvaluated
+    Date applyingDate;
 
     public int getID() {
         return ID;

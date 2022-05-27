@@ -7,10 +7,12 @@ import HSMS.Owner.Resident;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ApplicationRecords {
 
     ArrayList<Application> ApplicationRecord = new ArrayList<Application>();
+    ArrayList<EtagApplication> etagApplications = new ArrayList<EtagApplication>();
     ApplicationDBhandler db = new ApplicationDBhandler();
 
 
@@ -126,9 +128,16 @@ public class ApplicationRecords {
         EtagApplication temp2=new EtagApplication(oFName, oLName, oCnic, vNo, vType, vYear, vMake, vEngineSize, others, applicant);
         temp2.ID = assignID();
         temp2.applicant=applicant;
+        temp2.type=4;
+        temp2.applicationStatus="NE";
+        Date date=new Date();
+        temp2.applyingDate=date;
+
         ApplicationRecord.add(temp2);
 
-        System.out.println("CREATED111");
+        etagApplications.add(temp2);
+
+        System.out.println("CREATED111   "+date);
         //db.saveEtagApplication(temp);
         return temp2;
     }

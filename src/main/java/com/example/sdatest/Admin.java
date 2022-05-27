@@ -20,6 +20,8 @@ public class Admin {
 
     fullUIController UI=fullUIController.getInstance();
 
+    static Admin admin;
+
     @FXML
     private ResourceBundle resources;
 

@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import javafx.collections.FXCollections?>
 <StackPane fx:id="mainPane" prefHeight="583.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdatest.Login">
     <children>
         <VBox prefHeight="547.0" prefWidth="713.0">
@@ -54,7 +55,17 @@
                   <HBox alignment="CENTER" prefHeight="25.0" prefWidth="340.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="101.0" text="Choose Role:" textFill="#006581" />
-                        <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="106.0" />
+                        <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="106.0" >
+                         <items>
+                             <FXCollections fx:factory="observableArrayList">
+
+                                 <String fx:id="admin" fx:value="admin" />
+                                 <String fx:id="resident" fx:value="resident" />
+                                 <String fx:id="maintenance" fx:value="maintenance" />
+                                 <String fx:id="guest" fx:value="guest" />
+                             </FXCollections>
+                         </items>
+                        </ChoiceBox>
                      </children>
                   </HBox>
                         <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="69.0" prefWidth="374.0">
