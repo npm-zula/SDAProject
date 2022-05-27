@@ -1,10 +1,13 @@
 package HSMS.ApplicationTypes;
 
+import HSMS.Owner.Resident;
+
 public class EtagApplication extends Application{
 
     String OFName;
     String OLName;
-    int oCnic;
+    String oCnic;
+
 
     String vNo;
     String vType;
@@ -21,7 +24,7 @@ public class EtagApplication extends Application{
         return OLName;
     }
 
-    public int getoCnic() {
+    public String getoCnic() {
         return oCnic;
     }
 
@@ -52,23 +55,26 @@ public class EtagApplication extends Application{
             return "0";
     }
 
-    //    public Application createEtagApplication(Applicant applicant, String oFName, String oLName, int oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others){
-//        EtagApplication temp = new EtagApplication();
-//        temp.applicant = applicant;
-//        temp.OFName = oFName;
-//        temp.OLName = oLName;
-//        temp.oCnic = oCnic;
-//        temp.others = others;
-//        temp.vNo = vNo;
-//        temp.vType = vType;
-//        temp.vMake = vMake;
-//        temp.vYear = vYear;
-//        temp.vEngineSize = vEngineSize;
-//        temp.type = 4;
-//        //super.ApplicationRecords.add(temp);
-//        temp.applicationStatus = "NE";
-//        return temp;
-//    }
+    public EtagApplication() {
+    }
+
+    public  EtagApplication(String oFName, String oLName, String oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others, Resident applicant){
+        EtagApplication temp = this;
+        temp.applicant = applicant;
+        temp.OFName = oFName;
+        temp.OLName = oLName;
+        temp.oCnic = oCnic;
+        temp.others = others;
+        temp.vNo = vNo;
+        temp.vType = vType;
+        temp.vMake = vMake;
+        temp.vYear = vYear;
+        temp.vEngineSize = vEngineSize;
+        temp.type = 4;
+        //super.ApplicationRecords.add(temp);
+        temp.applicationStatus = "NE";
+
+    }
 
 
 }

@@ -1,6 +1,7 @@
 package HSMS.Applicant;
 
 import HSMS.DBHandlers.ApplicantDBHandler;
+import HSMS.Owner.Resident;
 
 import java.util.ArrayList;
 
@@ -60,12 +61,12 @@ public class ApplicantRecords {
         return temp;
     }
 
-    public Applicant getApplicant(int ID){
-        for(Applicant a : ApplicantRecords){
-            if(a.getID() == ID){
-                return a;
-            }
-        }
-        return null;
-    }
+//    public Resident getApplicant(int ID){
+//        for(Applicant a : ApplicantRecords){
+//            if(a.getID() == ID){
+//                return a;
+//            }
+//        }
+//        return null;
+//    }
 }

@@ -1,10 +1,11 @@
 package HSMS.ApplicationTypes;
 
 import HSMS.Applicant.Applicant;
+import HSMS.Owner.Resident;
 
 public abstract class Application {
 
-    Applicant applicant;
+    Resident applicant;
     int ID;
     int type; // 1 => Registration, 2 => Transfer, 3 => Renting,  4 => ETagApplication
     String applicationStatus; // A = Approved ,  R = Rejected , NE =  NotEvaluated
@@ -13,7 +14,7 @@ public abstract class Application {
         return ID;
     }
 
-    public Applicant getApplicant() {
+    public Resident getApplicant() {
         return applicant;
     }
 

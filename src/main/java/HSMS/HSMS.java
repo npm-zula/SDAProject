@@ -5,6 +5,7 @@ import HSMS.Applicant.ApplicantRecords;
 import HSMS.ApplicationTypes.*;
 import HSMS.Complaint.Complaint;
 import HSMS.Complaint.ComplaintRecords;
+import HSMS.Owner.Resident;
 
 import java.sql.SQLException;
 
@@ -42,13 +43,13 @@ public class HSMS {
           return applicantRecords.applicantCreation(fname, lname,cnic,email,check);
     }
 
-    public Application propertyRegistrationApplication(int ApplicationNo,String houseNo, String size, String oFName, String oLName, int oAge, int oCnic){
-        Applicant tempApplicant = applicantRecords.getApplicant(ApplicationNo);
-        if(tempApplicant.getID() != 0)
-              return  applicationRecords.createRegApplication(tempApplicant,houseNo,size,oFName,oLName,oAge,oCnic);
-
-        return null;
-    }
+//    public Application propertyRegistrationApplication(int ApplicationNo,String houseNo, String size, String oFName, String oLName, int oAge, int oCnic){
+//        Resident tempApplicant = applicantRecords.getApplicant(ApplicationNo);
+//        if(tempApplicant.getID() != 0)
+//              return  applicationRecords.createRegApplication(tempApplicant,houseNo,size,oFName,oLName,oAge,oCnic);
+//
+//        return null;
+//    }
 
     public Application propertyTransApplication(String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic, String HouseNo){
 
@@ -62,8 +63,12 @@ public class HSMS {
         return  applicationRecords.createRentApplication(RFName,RLName,RCNIC,oFName,oLName,oCnic, rent, increment);
     }
 
-    public Application etagApplication(String oFName, String oLName, int oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others){
-        return  applicationRecords.createEtagApplication(oFName,oLName,oCnic,vNo,vType,vYear,vMake,vEngineSize,others);
+    public Application etagApplication(String oFName, String oLName, String oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others, Resident user){
+
+
+        Application temp = applicationRecords.createEtagApplication(oFName,oLName,oCnic,vNo,vType,vYear,vMake,vEngineSize,others,user);
+
+        return temp;
     }
 
     public Application getApplicationStatus(int appID){

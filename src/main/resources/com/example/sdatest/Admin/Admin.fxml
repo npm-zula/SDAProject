@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<StackPane fx:id="mainPane" prefHeight="623.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdatest.Admin">
+        <children>
+            <VBox prefHeight="547.0" prefWidth="713.0">
+                <children>
+                    <HBox alignment="CENTER" prefHeight="313.0" prefWidth="780.0" style="-fx-background-color: #009EC4;" VBox.vgrow="ALWAYS">
+                        <children>
+                            <HBox alignment="TOP_RIGHT" prefHeight="315.0" prefWidth="780.0" HBox.hgrow="ALWAYS">
+                                <children>
+                                    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="59.0" prefWidth="780.0" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barqa Housing Society" wrappingWidth="336.017578125">
+                                                <font>
+                                                    <Font name="Berlin Sans FB" size="35.0" />
+                                                </font>
+                                            </Text>
+                                            
+                                        </children>
+                                    </VBox>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" prefHeight="59.0" prefWidth="319.0">
+                           <children>
+                              <Button fx:id="Logout" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                           </children>
+                        </VBox>
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="507.0" prefWidth="780.0" style="-fx-background-color: #fff;" VBox.vgrow="ALWAYS" />
+                </children>
+            </VBox>
+            <VBox fx:id="detailsPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="444.0" prefWidth="704.0" style="-fx-background-color: #fff;">
+                <StackPane.margin>
+
+                </StackPane.margin>
+                <effect>
+                    <DropShadow height="5.0" radius="2.0" width="5.0" />
+                </effect>
+         <children>
+            <TabPane prefHeight="471.0" prefWidth="678.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Add Property">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="249.0" prefWidth="698.0">
+                           <children>
+                              <VBox layoutX="151.0" layoutY="22.0" prefHeight="359.0" prefWidth="403.0">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="357.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="148.0" text="Choose Society:" textFill="#006581" />
+                                          <ChoiceBox fx:id="role1" prefHeight="25.0" prefWidth="106.0" />
+                                          <HBox prefHeight="42.0" prefWidth="25.0" />
+                                          <Button fx:id="viewSocietyDetails1" onAction="#handleLoginBtn" prefHeight="23.0" prefWidth="57.0" text="view" textFill="#006581">
+                                             <font>
+                                                <Font size="9.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="32.0" prefWidth="357.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="147.0" text="Enter Block Number :" textFill="#006581" />
+                                          <TextField prefHeight="25.0" prefWidth="120.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="357.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="136.0" text="Choose House Type:" textFill="#006581" />
+                                          <ChoiceBox fx:id="role11" prefHeight="25.0" prefWidth="106.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="403.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="138.0" text="Description :" textFill="#006581" />
+                                          <TextField fx:id="descriptionHouse" prefHeight="25.0" prefWidth="120.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="93.0" prefWidth="403.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="83.0" text="Details :" textFill="#006581" />
+                                          <VBox alignment="CENTER" prefHeight="87.0" prefWidth="193.0">
+                                             <children>
+                                                <HBox prefHeight="25.0" prefWidth="193.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="84.0" text="Total Houses  :" textFill="#006581" />
+                                                      <Label fx:id="totalHouses" prefHeight="17.0" prefWidth="82.0" text="5" textFill="#006581" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="25.0" prefWidth="193.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="113.0" text="Allocated Houses:" textFill="#006581" />
+                                                      <Label fx:id="allocatedHouses" prefHeight="17.0" prefWidth="82.0" text="0" textFill="#006581" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="25.0" prefWidth="193.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="112.0" text="Remaining Houses   :" textFill="#006581" />
+                                                      <Label fx:id="remainingHouses" prefHeight="17.0" prefWidth="82.0" text="5" textFill="#006581" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="25.0" prefWidth="193.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="82.0" textFill="#006581" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="357.0">
+                                       <children>
+                                          <Button fx:id="addHouse1" onAction="#handleAddHouse" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #006581;" text="Add" textFill="WHITE" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="357.0">
+                                       <children>
+                                          <Label fx:id="confirmationHouseAdd" prefHeight="17.0" prefWidth="113.0" textFill="#006581">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="View Houses">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="157.0" layoutY="28.0" prefHeight="359.0" prefWidth="403.0">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="357.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="148.0" text="Choose Society:" textFill="#006581" />
+                                          <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="106.0" />
+                                          <HBox prefHeight="42.0" prefWidth="25.0" />
+                                          <Button fx:id="viewSocietyDetails" onAction="#handleSocietyDetails" prefHeight="23.0" prefWidth="57.0" text="view" textFill="#006581">
+                                             <font>
+                                                <Font size="9.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="249.0" prefWidth="403.0">
+                                       <children>
+                                          <TableView fx:id="TableHouses" onSort="#handleHouses" prefHeight="53.0" prefWidth="528.0">
+                                            <columns>
+                                              <TableColumn fx:id="hrSR" prefWidth="75.0" text="sr#" />
+                                              <TableColumn fx:id="HouseBlock" prefWidth="75.0" text="Block#" />
+                                                <TableColumn fx:id="Htype" prefWidth="75.0" text="House Type" />
+                                                <TableColumn fx:id="DescHouse" prefWidth="75.0" text="Description" />
+                                            </columns>
+                                          </TableView>
+                                          <Label prefHeight="17.0" prefWidth="113.0" textFill="#006581">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="357.0">
+                                       <children>
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="237.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="148.0" text="Choose House Sr#:" textFill="#006581" />
+                                                <HBox prefHeight="42.0" prefWidth="25.0" />
+                                                <TextField fx:id="deleteHouseSr" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="357.0">
+                                       <children>
+                                          <Button fx:id="addHouse" onAction="#handleHouseDel" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #006581;" text="Delete" textFill="WHITE" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Allocate House">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Member Manage">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="View Complains">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Etag Applications">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Sell/Rent Applications">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+            </VBox>
+            <HBox fx:id="loaderPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="152.0" spacing="10.0" style="-fx-background-color: #fff;" visible="false">
+                <children>
+
+                    <Label prefHeight="61.0" prefWidth="77.0" text="Redirecting... please wait..." wrapText="true" />
+                </children>
+                <effect>
+                    <DropShadow height="5.0" radius="2.0" width="5.0" />
+                </effect>
+            </HBox>
+        </children>
+    </StackPane>

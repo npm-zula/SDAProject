@@ -2,6 +2,7 @@ package HSMS.ApplicationTypes;
 
 import HSMS.Applicant.Applicant;
 import HSMS.DBHandlers.ApplicationDBhandler;
+import HSMS.Owner.Resident;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,6 +20,7 @@ public class ApplicationRecords {
         while(!check){
             t = genID();
             if(!exists(t)){
+                System.out.println("sss "+t);
                 return t;
             }
         }
@@ -53,7 +55,7 @@ public class ApplicationRecords {
     }
 
     //ADDING APPLICATIONS TO RECORDS
-    public Application createRegApplication(Applicant applicant, String houseNo, String size, String oFName, String oLName, int oAge, int oCnic){
+    public Application createRegApplication(Resident applicant, String houseNo, String size, String oFName, String oLName, int oAge, int oCnic){
         RegistrationApplication temp = new RegistrationApplication();
         temp.applicant = applicant;
         temp.houseNo = houseNo;
@@ -105,25 +107,30 @@ public class ApplicationRecords {
         return temp;
     }
 
-    public Application createEtagApplication( String oFName, String oLName, int oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others){
-        EtagApplication temp = new EtagApplication();
-        temp.OFName = oFName;
-        temp.OLName = oLName;
-        temp.oCnic = oCnic;
-        temp.others = others;
-        temp.vNo = vNo;
-        temp.vType = vType;
-        temp.vMake = vMake;
-        temp.vYear = vYear;
-        temp.vEngineSize = vEngineSize;
-        temp.type = 4;
-        temp.ID = assignID();
-        temp.applicationStatus = "NE";
-        ApplicationRecord.add(temp);
+    public Application createEtagApplication(String oFName, String oLName, String oCnic, String vNo, String vType, String vYear, String vMake, int vEngineSize, boolean others, Resident applicant){
+//        EtagApplication temp = new EtagApplication();
+//        temp.OFName = oFName;
+//        temp.OLName = oLName;
+//        temp.oCnic = oCnic;
+//        temp.others = others;
+//        temp.vNo = vNo;
+//        temp.vType = vType;
+//        temp.vMake = vMake;
+//        temp.vYear = vYear;
+//        temp.vEngineSize = vEngineSize;
+//        temp.type = 4;
+//        temp.ID = assignID();
+//        temp.applicationStatus = "NE";
 
-        System.out.println("CREATED");
+
+        EtagApplication temp2=new EtagApplication(oFName, oLName, oCnic, vNo, vType, vYear, vMake, vEngineSize, others, applicant);
+        temp2.ID = assignID();
+        temp2.applicant=applicant;
+        ApplicationRecord.add(temp2);
+
+        System.out.println("CREATED111");
         //db.saveEtagApplication(temp);
-        return temp;
+        return temp2;
     }
 
 

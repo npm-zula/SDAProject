@@ -2,18 +2,18 @@ package com.example.sdatest;
 
 import HSMS.Applicant.Applicant;
 import HSMS.ApplicationTypes.Application;
+import HSMS.ApplicationTypes.EtagApplication;
 import HSMS.Complaint.Complaint;
 import HSMS.HSMS;
+import HSMS.Owner.Owner;
+import HSMS.Owner.Resident;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,6 +26,24 @@ public class ResidentController {
     private Scene scene;
     private Parent root;
 
+    static Resident owner;
+    @FXML
+    private Label name=new Label();
+
+
+    @FXML
+    private Button refreshBtn;
+
+
+    @FXML
+    void refresh(ActionEvent event) {
+     //   this.name.setText(owner.getFirstName());
+    }
+    @FXML
+    void initialize(){
+        name.setText(owner.getFirstName());
+      //  System.out.println("aaaaaaaaaaa   "+owner.getFirstName());
+    }
 
     @FXML
     public void BackBtn(ActionEvent actionEvent) throws IOException {
@@ -296,8 +314,8 @@ public class ResidentController {
     void createETApplication(ActionEvent actionEvent) throws IOException {
 
         if(ETrbYES.isSelected()){
-            Application app = getHsms().etagApplication(ETofname.getText(),ETolname.getText(),Integer.parseInt(EToCNIC.getText()),ETvNo.getText(),
-                    ETvType.getValue(),ETvYear.getValue(),ETvMake.getText(),Integer.parseInt(ETengineSize.getText()),true);
+            Application app = getHsms().etagApplication(ETofname.getText(),ETolname.getText(),EToCNIC.getText(),ETvNo.getText(),
+                    ETvType.getValue(),ETvYear.getValue(),ETvMake.getText(),Integer.parseInt(ETengineSize.getText()),true,owner);
 
             Parent root1;
             String appID = String.valueOf(app.getID());
@@ -314,8 +332,8 @@ public class ResidentController {
 
         }
         if(ERrbNO.isSelected()){
-            Application app = getHsms().etagApplication(ETofname.getText(),ETolname.getText(),Integer.parseInt(EToCNIC.getText()),ETvNo.getText(),
-                    ETvType.getValue(),ETvYear.getValue(),ETvMake.getText(),Integer.parseInt(ETengineSize.getText()),false);
+            Application app = getHsms().etagApplication(ETofname.getText(),ETolname.getText(),EToCNIC.getText(),ETvNo.getText(),
+                    ETvType.getValue(),ETvYear.getValue(),ETvMake.getText(),Integer.parseInt(ETengineSize.getText()),false,owner);
 
             Parent root1;
             String appID = String.valueOf(app.getID());
@@ -331,7 +349,6 @@ public class ResidentController {
             stage1.show();
         }
     }
-
 
     //GET APPLICATION STATUS
 
@@ -355,7 +372,7 @@ public class ResidentController {
         Application application = getHsms().getApplicationStatus(Integer.parseInt(appIDStatusField.getText()));
 
         ApplicationStatusPOPUPController a = fxmlLoader.getController();
-        a.display(String.valueOf(application.getID()) ,application.getApplicationStatus(),application.getApplicant().getFirstName() + " " + application.getApplicant().getLastName());
+        a.display(String.valueOf(application.getID()) ,application.getApplicationStatus(),"" + " " + application.getApplicant().getLastName());
 
         Stage stage1 = new Stage();
         stage1.setScene(new Scene(root1));

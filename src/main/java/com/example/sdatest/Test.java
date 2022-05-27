@@ -18,7 +18,7 @@ public class Test extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Test.class.getResource("dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Test.class.getResource("Admin/new.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         stage.setTitle("HSMS");
         stage.setScene(scene);

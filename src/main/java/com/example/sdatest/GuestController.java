@@ -141,15 +141,15 @@ public class GuestController {
       //  System.out.println(app.toString());
 
 
-        Application app =  getHsms().propertyRegistrationApplication(Integer.parseInt(appID.getText()),houseNo.getText(),HouseSize.getValue(),oFName.getText(),oLName.getText(),Integer.parseInt(oAge.getText()),Integer.parseInt(oCNIC.getText()));
+       // Application app =  getHsms().propertyRegistrationApplication(Integer.parseInt(appID.getText()),houseNo.getText(),HouseSize.getValue(),oFName.getText(),oLName.getText(),Integer.parseInt(oAge.getText()),Integer.parseInt(oCNIC.getText()));
         Parent root1;
-        String appID = String.valueOf(app.getID());
+      //  String appID = String.valueOf(app.getID());
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicationSuccessPopUPscreen.fxml"));
         root1 = loader.load();
 
         popUPcontroller p = loader.getController();
-        p.displayapplicationID(appID);
+       // p.displayapplicationID(appID);
 
         Stage stage1 = new Stage();
         stage1.setScene(new Scene(root1));
