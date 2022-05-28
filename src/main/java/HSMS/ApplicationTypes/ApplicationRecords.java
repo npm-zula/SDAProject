@@ -149,6 +149,7 @@ public class ApplicationRecords {
                 temp.applicant.setLastName(rs.getString("ALastName"));
                 temp.applicant.setCnic(rs.getInt("Acnic"));
                 temp.applicant.setEmailAddress(rs.getString("AEmailAddress"));
+                temp.applicationStatus = rs.getString("ApplicationStatus");
                 ApplicationRecord.add(temp);
             }
         }
@@ -168,6 +169,7 @@ public class ApplicationRecords {
                 temp.RLName = rs.getString("RLName");
                 temp.RCnic = rs.getInt("RCNIC");
                 temp.type = rs.getInt("ApplicationType");
+                temp.applicationStatus = rs.getString("ApplicationStatus");
                 ApplicationRecord.add(temp);
             }
         }
@@ -188,6 +190,7 @@ public class ApplicationRecords {
             temp.rent = rs.getInt("RENT");
             temp.increment = rs.getInt("INCREMENT");
             temp.type = rs.getInt("ApplicationType");
+            temp.applicationStatus = rs.getString("ApplicationStatus");
             ApplicationRecord.add(temp);
         }
     }
@@ -208,6 +211,7 @@ public class ApplicationRecords {
             temp.others = !rs.getString("Others").equals("0");
             temp.type = rs.getInt("ApplicationType");
             //System.out.println(rs.getInt("ApplicationType"));
+            temp.applicationStatus = rs.getString("ApplicationStatus");
             ApplicationRecord.add(temp);
         }
     }
@@ -215,7 +219,7 @@ public class ApplicationRecords {
 
     public void getApplications(){
         for(Application app : ApplicationRecord){
-            System.out.println(app.getID() + " " + app.getType());
+            System.out.println(app.getID() + " " + app.getStatus() + " " + app.getApplicationStatus());
         }
     }
 

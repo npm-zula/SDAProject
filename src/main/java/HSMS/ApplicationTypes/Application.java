@@ -20,10 +20,14 @@ public abstract class Application {
     public String getApplicationStatus() {
         if(applicationStatus.equals("NE"))
             return "NOT EVALUATED";
-        else if(applicationStatus.equals("R"))
+        else if(applicationStatus.equals("RE"))
             return "REJECTED";
         else
             return "Approved";
+    }
+
+    public String getStatus(){
+        return applicationStatus;
     }
 
     public int getType() {

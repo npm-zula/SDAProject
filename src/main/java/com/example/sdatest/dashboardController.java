@@ -35,20 +35,20 @@ public class dashboardController {
     }
     @FXML
     public void handleBtnEmployee(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("EmployeeDashboard.fxml"));
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+//        root = FXMLLoader.load(getClass().getResource("EmployeeDashboard.fxml"));
+//        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
 
     }
     @FXML
     public void handleBtnChairman(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Chairman.fxml"));
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+//        root = FXMLLoader.load(getClass().getResource("Chairman.fxml"));
+//        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
     }
     @FXML
     public void handleBtnGuest(ActionEvent actionEvent) throws IOException {

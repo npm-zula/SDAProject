@@ -63,7 +63,7 @@ public class GuestController {
 
     @FXML
     public void ApplicationStatusPopUP(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Guest/ApplicationStatusPopUPscreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Guest/ApplicationStatusPopUP.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
 
         Application application = getHsms().getApplicationStatus(Integer.parseInt(appIDStatusField.getText()));
@@ -97,7 +97,7 @@ public class GuestController {
         Parent root1;
         String appID = String.valueOf(app.getID());
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicantSuccessPopUPscreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicantSuccessPopUP.fxml"));
         root1 = loader.load();
 
         popUPcontroller p = loader.getController();
@@ -137,15 +137,13 @@ public class GuestController {
     void propertyRegistrationApplication(ActionEvent event) throws IOException {
       //  System.out.println(Integer.parseInt(appID.getText()));
        // Application app = getHsms().propertyRegistrationApplication(Integer.parseInt(appID.getText()),houseNo.getText(),HouseSize.getValue(),oFName.getText(),oLName.getText(),Integer.parseInt(oAge.getText()),Integer.parseInt(oCNIC.getText()));
-
       //  System.out.println(app.toString());
-
 
         Application app =  getHsms().propertyRegistrationApplication(Integer.parseInt(appID.getText()),houseNo.getText(),HouseSize.getValue(),oFName.getText(),oLName.getText(),Integer.parseInt(oAge.getText()),Integer.parseInt(oCNIC.getText()));
         Parent root1;
         String appID = String.valueOf(app.getID());
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicationSuccessPopUPscreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Guest/ApplicationSuccessPopUP.fxml"));
         root1 = loader.load();
 
         popUPcontroller p = loader.getController();

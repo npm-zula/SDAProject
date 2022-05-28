@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ApplicationDBhandler {
 
     public void saveRegApplication(RegistrationApplication application){
-        String sql = "insert into Registration_Applications (AFirstName, ALastName, Acnic, AEmailAddress, ID, houseNo, Size, OFName, OLName, Oage, oCNIC,ApplicationType) VALUES(?,?, ?, ?, ?,?, ?, ?, ?,?,?,?)";
+        String sql = "insert into Registration_Applications (AFirstName, ALastName, Acnic, AEmailAddress, ID, houseNo, Size, OFName, OLName, Oage, oCNIC,ApplicationType, ApplicationStatus) VALUES(?,?,?, ?, ?, ?,?, ?, ?, ?,?,?,?)";
         try {
             String url = "jdbc:jtds:sqlserver://ZULA:1433/newHSMS;instance=SQLEXPRESS";
             //String url ="jdbc:sqlserver://ZULA:1433;databaseName=HSMS;integratedSecurity=true";
@@ -30,6 +30,7 @@ public class ApplicationDBhandler {
             st.setString(10, String.valueOf(application.getoAge()));
             st.setString(11, String.valueOf(application.getoCnic()));
             st.setString(12, String.valueOf(application.getType()));
+            st.setString(13, String.valueOf(application.getStatus()));
             st.executeUpdate();
             conn.close();
         } catch (Exception e) {
@@ -39,7 +40,7 @@ public class ApplicationDBhandler {
     }
 
     public void saveRentingApplication(RentingApplication application){
-        String sql = "insert into Renting_Applications ( ID,OFName, OLName, oCNIC, RFName,RLName, RCNIC, RENT, INCREMENT,ApplicationType) VALUES(?,?, ?, ?, ?,?, ?, ?, ?,?, ?, ?, ?,?)";
+        String sql = "insert into Renting_Applications ( ID,OFName, OLName, oCNIC, RFName,RLName, RCNIC, RENT, INCREMENT,ApplicationType, ApplicationStatus) VALUES(?,?,?, ?, ?, ?,?, ?, ?, ?,?, ?, ?, ?,?)";
         try {
             String url = "jdbc:jtds:sqlserver://ZULA:1433/newHSMS;instance=SQLEXPRESS";
             //String url ="jdbc:sqlserver://ZULA:1433;databaseName=HSMS;integratedSecurity=true";
@@ -65,7 +66,7 @@ public class ApplicationDBhandler {
     }
 
     public void saveOTApplication(OwnerTransferApplication application){
-        String sql = "insert into OT_Applications ( ID,OFName, OLName, oCNIC, RFName,RLName, RCNIC,ApplicationType) VALUES( ?, ?, ?, ?, ?, ?,?,?)";
+        String sql = "insert into OT_Applications ( ID,OFName, OLName, oCNIC, RFName,RLName, RCNIC,ApplicationType, ApplicationStatus) VALUES(?, ?, ?, ?, ?, ?, ?,?,?)";
         try {
             String url = "jdbc:jtds:sqlserver://ZULA:1433/newHSMS;instance=SQLEXPRESS";
             //String url ="jdbc:sqlserver://ZULA:1433;databaseName=HSMS;integratedSecurity=true";
@@ -89,7 +90,7 @@ public class ApplicationDBhandler {
     }
 
     public void saveEtagApplication(EtagApplication application){
-        String sql = "insert into Etag_Applications ( ID,OFName, OLName, oCNIC, VehichleNo, VehicleType, VehicleMake, VehicleYear, EngineSize, Others,ApplicationType) VALUES(?, ?, ?, ?,?, ?, ?, ?,?,?,?)";
+        String sql = "insert into Etag_Applications ( ID,OFName, OLName, oCNIC, VehichleNo, VehicleType, VehicleMake, VehicleYear, EngineSize, Others,ApplicationType, ApplicationStatus) VALUES(?,?, ?, ?, ?,?, ?, ?, ?,?,?,?)";
         try {
             String url = "jdbc:jtds:sqlserver://ZULA:1433/newHSMS;instance=SQLEXPRESS";
             //String url ="jdbc:sqlserver://ZULA:1433;databaseName=HSMS;integratedSecurity=true";
@@ -120,7 +121,6 @@ public class ApplicationDBhandler {
         ResultSet rs;
         if(n == 1){
             try {
-
                 sql = "select * from Registration_Applications";
                 String url = "jdbc:jtds:sqlserver://ZULA:1433/newHSMS;instance=SQLEXPRESS";
                 //String url ="jdbc:sqlserver://ZULA:1433;databaseName=HSMS;integratedSecurity=true";
