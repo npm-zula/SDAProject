@@ -1,6 +1,6 @@
 package HSMS.DBHandlers;
 
-import HSMS.Owner.Owner;
+import HSMS.Resident.Owner;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

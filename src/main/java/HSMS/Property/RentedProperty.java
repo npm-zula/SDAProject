@@ -1,6 +1,8 @@
-package HSMS;
+package HSMS.Property;
 
-public class RentedProperty extends Property{
+import HSMS.Property.Property;
+
+public class RentedProperty extends Property {
 
     private int rentAmount;
     private float rentIncrement;

@@ -3,17 +3,14 @@ package com.example.sdatest;
 import HSMS.Applicant.Applicant;
 import HSMS.ApplicationTypes.Application;
 import HSMS.Complaint.Complaint;
-import HSMS.HSMS;
+import HSMS.Resident.Resident;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,10 +19,17 @@ import static HSMS.HSMS.getHsms;
 
 public class ResidentController {
 
+    public static Resident owner;
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private Label name=new Label();
+
+
+    @FXML
+    private Button refreshBtn;
 
     @FXML
     public void BackBtn(ActionEvent actionEvent) throws IOException {
@@ -361,6 +365,8 @@ public class ResidentController {
         stage1.setScene(new Scene(root1));
         stage1.show();
     }
+
+
 
 
 }

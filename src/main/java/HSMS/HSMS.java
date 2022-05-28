@@ -5,8 +5,14 @@ import HSMS.Applicant.ApplicantRecords;
 import HSMS.ApplicationTypes.*;
 import HSMS.Complaint.Complaint;
 import HSMS.Complaint.ComplaintRecords;
+import HSMS.Property.House;
+import HSMS.Resident.Owner;
+import HSMS.Resident.OwnerRecords;
+import HSMS.Resident.Resident;
+import HSMS.Resident.residentRecords;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class HSMS {
@@ -19,6 +25,11 @@ public class HSMS {
     ApplicationRecords applicationRecords = new ApplicationRecords();
     ComplaintRecords complaintRecords = new ComplaintRecords();
     ApplicantRecords applicantRecords = new ApplicantRecords();
+
+    residentRecords residents = new residentRecords();
+    OwnerRecords owners = new OwnerRecords();
+    Admin admin=new Admin();
+    ArrayList<House> houses=new ArrayList<House>();
 
 
     public static HSMS getHsms(){
@@ -81,5 +92,47 @@ public class HSMS {
 
         return temp;
     }
+
+
+    //2.0
+    public void regHouse(String fname, String lname, String email, String cnic, int age, String password, String hNo){
+        House temp=new House();
+        temp=temp.getHouse(hNo,this.houses);
+
+        Resident tempRes=this.residents.addResident(fname,lname,email,cnic,age,password,temp);
+        Owner obj= this.owners.addOwner(fname,lname,email,cnic,age,password,temp);
+        temp.alotHouse(this.houses,obj,hNo);
+    }
+
+
+    public ArrayList<EtagApplication> getEtagApps() {
+
+        return this.applicationRecords.getEtagApps();
+    }
+
+    public boolean checkOwner(String hNo,String owner){
+        return this.residents.checkOwner(hNo,owner);
+    }
+
+    public void updateApplicationStatus(String status, String applicationId){
+        this.applicationRecords.updateApplicationStatus(status,applicationId);
+    }
+
+    public ArrayList<House> getHouses() {
+
+        return houses;
+    }
+
+    public void addHouse(String block,String Desc,String type){
+
+        House temp=new House();
+        temp.addHouse(block,Desc,type,this.houses);
+
+    }
+
+    public Resident residentLogin(String cnic,String pass){
+        return this.residents.Login(cnic,pass);
+    }
+
 
 }

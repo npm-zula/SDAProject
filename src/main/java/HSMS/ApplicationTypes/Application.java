@@ -2,12 +2,19 @@ package HSMS.ApplicationTypes;
 
 import HSMS.Applicant.Applicant;
 
-public abstract class Application {
+import java.util.Date;
+
+public abstract class Application extends ApplicationRecords {
 
     Applicant applicant;
     int ID;
     int type; // 1 => Registration, 2 => Transfer, 3 => Renting,  4 => ETagApplication
     String applicationStatus; // A = Approved ,  R = Rejected , NE =  NotEvaluated
+    Date applyingDate;
+
+    public Date getDate() {
+        return applyingDate;
+    }
 
     public int getID() {
         return ID;
@@ -32,6 +39,10 @@ public abstract class Application {
 
     public int getType() {
         return type;
+    }
+
+    public void setApplicationStatus(String applicationStatus) {
+        this.applicationStatus = applicationStatus;
     }
 
     //    Property property;

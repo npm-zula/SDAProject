@@ -13,56 +13,56 @@ public class VehicleETag {
     public String getRegNo() {
         return regNo;
     }
-
-    public void setRegNo(String regNo) {
-        this.regNo = regNo;
-    }
+//
+//    public void setRegNo(String regNo) {
+//        this.regNo = regNo;
+//    }
 
     public String getVehType() {
         return vehType;
     }
 
-    public void setVehType(String vehType) {
-        this.vehType = vehType;
-    }
+//    public void setVehType(String vehType) {
+//        this.vehType = vehType;
+//    }
 
     public String getVehMake() {
         return vehMake;
     }
-
-    public void setVehMake(String vehMake) {
-        this.vehMake = vehMake;
-    }
+//
+//    public void setVehMake(String vehMake) {
+//        this.vehMake = vehMake;
+//    }
 
     public String getVehYear() {
         return vehYear;
     }
 
-    public void setVehYear(String vehYear) {
-        this.vehYear = vehYear;
-    }
+//    public void setVehYear(String vehYear) {
+//        this.vehYear = vehYear;
+//    }
 
     public int getEngineSize() {
         return engineSize;
     }
-
-    public void setEngineSize(int engineSize) {
-        this.engineSize = engineSize;
-    }
+//
+//    public void setEngineSize(int engineSize) {
+//        this.engineSize = engineSize;
+//    }
 
     public String getOwnerFirstName() {
         return OwnerFirstName;
     }
 
-    public void setOwnerFirstName(String ownerFirstName) {
-        OwnerFirstName = ownerFirstName;
-    }
+//    public void setOwnerFirstName(String ownerFirstName) {
+//        OwnerFirstName = ownerFirstName;
+//    }
 
-    public String getOwnerLastName() {
-        return OwnerLastName;
-    }
-
-    public void setOwnerLastName(String ownerLastName) {
-        OwnerLastName = ownerLastName;
-    }
+//    public String getOwnerLastName() {
+//        return OwnerLastName;
+//    }
+//
+//    public void setOwnerLastName(String ownerLastName) {
+//        OwnerLastName = ownerLastName;
+//    }
 }

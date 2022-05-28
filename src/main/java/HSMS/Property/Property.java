@@ -1,6 +1,6 @@
-package HSMS;
+package HSMS.Property;
 
-import HSMS.Owner.Owner;
+import HSMS.Resident.Owner;
 
 public class Property {
 

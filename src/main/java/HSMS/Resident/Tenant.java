@@ -1,6 +1,7 @@
-package HSMS;
+package HSMS.Resident;
 
-public class Tenant {
+
+public class Tenant extends Resident {
 
     private String firstName;
     private String lastName;
@@ -21,14 +22,6 @@ public class Tenant {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public int getCnic() {
-        return cnic;
-    }
-
-    public void setCnic(int cnic) {
-        this.cnic = cnic;
     }
 
     public String getEmailAddress() {

@@ -18,7 +18,7 @@ public class dashboardController {
 
     @FXML
     public void handleBtnResident(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Resident/ResidentDashboard.fxml"));
+        root = FXMLLoader.load(getClass().getResource("new.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -27,7 +27,7 @@ public class dashboardController {
     }
     @FXML
     public void handleBtnAdministrator(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("AdministratorDashboard.fxml"));
+        root = FXMLLoader.load(getClass().getResource("new.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

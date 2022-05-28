@@ -1,5 +1,6 @@
 package HSMS.Complaint;
 
+import HSMS.ApplicationTypes.ApplicationRecords;
 import HSMS.ApplicationTypes.OwnerTransferApplication;
 import HSMS.DBHandlers.ComplaintsDBHandler;
 
@@ -7,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ComplaintRecords {
+public class ComplaintRecords extends ApplicationRecords {
 
     ArrayList<Complaint> ComplaintRecord = new ArrayList<>();
     ComplaintsDBHandler db = new ComplaintsDBHandler();

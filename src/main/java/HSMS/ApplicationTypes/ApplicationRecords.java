@@ -2,14 +2,16 @@ package HSMS.ApplicationTypes;
 
 import HSMS.Applicant.Applicant;
 import HSMS.DBHandlers.ApplicationDBhandler;
+import HSMS.HSMS;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ApplicationRecords {
+public class ApplicationRecords extends HSMS {
 
     ArrayList<Application> ApplicationRecord = new ArrayList<Application>();
+    ArrayList<EtagApplication> etagApplications = new ArrayList<EtagApplication>();
     ApplicationDBhandler db = new ApplicationDBhandler();
 
 
@@ -220,6 +222,18 @@ public class ApplicationRecords {
     public void getApplications(){
         for(Application app : ApplicationRecord){
             System.out.println(app.getID() + " " + app.getStatus() + " " + app.getApplicationStatus());
+        }
+    }
+
+
+    public ArrayList<EtagApplication> getEtagApps() {
+        return this.etagApplications;
+    }
+
+    public void updateApplicationStatus(String status, String applicationId) {
+        for(Application a: ApplicationRecord){
+            if (a.getID()== Integer.parseInt(applicationId))
+                a.setApplicationStatus(status);
         }
     }
 

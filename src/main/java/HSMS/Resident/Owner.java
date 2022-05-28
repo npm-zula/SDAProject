@@ -1,18 +1,14 @@
-package HSMS.Owner;
+package HSMS.Resident;
 
-public class Owner {
-    private String firstName;
-    private String lastName;
-    private int age;
-    private int cNIC;
-    private String emailAddress;
+public class Owner extends Resident {
 
-    public Owner(String firstName, String lastName, int age, int cNIC, String emailAddress) {
+    public Owner(String firstName, String lastName, int age, String cNIC, String emailAddress, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.cNIC = cNIC;
+        this.cnic = cNIC;
         this.emailAddress = emailAddress;
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -35,12 +31,12 @@ public class Owner {
         this.lastName = lastName;
     }
 
-    public int getcNIC() {
-        return cNIC;
+    public String getcNIC() {
+        return cnic;
     }
 
-    public void setcNIC(int cNIC) {
-        this.cNIC = cNIC;
+    public void setcNIC(String cNIC) {
+        this.cnic = cNIC;
     }
 
     public String getEmailAddress() {
@@ -54,4 +50,16 @@ public class Owner {
     public void setAge(int age) {
         this.age = age;
     }
+
+
+    public String getPassword() {
+        return password;
+    }
+    public boolean login(String cNIC,String password){
+        if(this.password.equals(password)&&this.cnic.equals(cNIC)||this.emailAddress.equals(cNIC)){
+            return true;
+        }
+        return false;
+    }
+
 }
