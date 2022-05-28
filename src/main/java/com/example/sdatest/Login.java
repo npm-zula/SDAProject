@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import HSMS.HSMS;
 import HSMS.Owner.Owner;
 import HSMS.Owner.Resident;
 import javafx.event.ActionEvent;
@@ -16,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -36,6 +39,12 @@ public class Login {
     private Button signUpBtn;
 
     @FXML
+    private TextField userName;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
     private HBox loaderPane;
 
     @FXML
@@ -53,21 +62,37 @@ public class Login {
     }
 
     @FXML
-    private ChoiceBox<?> role;
+    private ChoiceBox<String> role;
 
     @FXML
     private Button SignIn;
     @FXML
     void handleSignin(ActionEvent event) throws IOException {
 
-        Resident obj=new Resident("Shahid","Hameed",2,"2333","wwww", "123");
-        ResidentController.owner=obj;
-        //ResidentController.setName(obj.getFirstName());
-        root = FXMLLoader.load(getClass().getResource("Resident/ResidentDashboard.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(role.getValue().equalsIgnoreCase("Resident")){
+            if(HSMS.getHsms().residentLogin(userName.getText(),password.getText())!=null){
+
+            }
+            else{
+                return;
+            }
+            Resident obj=HSMS.getHsms().residentLogin(userName.getText(),password.getText());
+            ResidentController.owner=obj;
+
+            root = FXMLLoader.load(getClass().getResource("Resident/ResidentDashboard.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } else if (role.getValue().equalsIgnoreCase("Admin")) {
+
+            //ResidentController.setName(obj.getFirstName());
+            root = FXMLLoader.load(getClass().getResource("Admin/Admin.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
 
 
     }

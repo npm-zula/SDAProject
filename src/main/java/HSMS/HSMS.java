@@ -5,9 +5,13 @@ import HSMS.Applicant.ApplicantRecords;
 import HSMS.ApplicationTypes.*;
 import HSMS.Complaint.Complaint;
 import HSMS.Complaint.ComplaintRecords;
+import HSMS.Owner.Owner;
+import HSMS.Owner.OwnerRecords;
 import HSMS.Owner.Resident;
+import HSMS.Owner.residentRecords;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class HSMS {
@@ -20,7 +24,10 @@ public class HSMS {
     ApplicationRecords applicationRecords = new ApplicationRecords();
     ComplaintRecords complaintRecords = new ComplaintRecords();
     ApplicantRecords applicantRecords = new ApplicantRecords();
-
+    residentRecords residents = new residentRecords();
+    OwnerRecords owners = new OwnerRecords();
+    Admin admin=new Admin();
+    ArrayList <House> houses=new ArrayList<House>();
 
     public static HSMS getHsms(){
         if(hsms == null){
@@ -34,6 +41,36 @@ public class HSMS {
       //  applicationRecords.updateRecords();
 
     }
+
+    public void updateApplicationStatus(String status, String applicationId){
+        this.applicationRecords.updateApplicationStatus(status,applicationId);
+    }
+
+
+    public ArrayList<House> getHouses() {
+        //populateData
+
+
+//        this.houses.add(new House("2","Good","2apt",this.houses));
+//        this.houses.add(new House("2","Good","2apt",this.houses));
+//        this.houses.add(new House("3","Good","2apt",this.houses));
+//        this.houses.add(new House("23","Good","2apt",this.houses));
+//
+
+        return houses;
+    }
+
+    public void addHouse(String block,String Desc,String type){
+
+        House temp=new House();
+        temp.addHouse(block,Desc,type,this.houses);
+
+    }
+
+   public Resident residentLogin(String cnic,String pass){
+       return this.residents.Login(cnic,pass);
+    }
+
 
 
     public Applicant createApplicant(String fname, String lname, int cnic, String email, boolean check){
@@ -51,6 +88,16 @@ public class HSMS {
 //        return null;
 //    }
 
+    public void alotHouse(String fname,String lname,String email, String cnic, int age, String password,String hNo){
+        House temp=new House();
+        temp=temp.getHouse(hNo,this.houses);
+
+        Resident tempRes=this.residents.addResident(fname,lname,email,cnic,age,password,temp);
+       Owner obj= this.owners.addOwner(fname,lname,email,cnic,age,password,temp);
+        temp.alotHouse(this.houses,obj,hNo);
+
+    }
+
     public Application propertyTransApplication(String RFName, String RLName, int RCNIC, String oFName, String oLName,  int oCnic, String HouseNo){
 
 
@@ -67,7 +114,7 @@ public class HSMS {
 
 
         Application temp = applicationRecords.createEtagApplication(oFName,oLName,oCnic,vNo,vType,vYear,vMake,vEngineSize,others,user);
-
+        user.addApplications(temp);
         return temp;
     }
 
@@ -83,6 +130,14 @@ public class HSMS {
         Complaint temp = complaintRecords.getComplaint(ID);
 
         return temp;
+    }
+
+    public ArrayList<EtagApplication> getEtagApps() {
+
+        return this.applicationRecords.getEtagApps();
+    }
+    public boolean checkOwner(String hNo,String owner){
+        return this.residents.checkOwner(hNo,owner);
     }
 
 }

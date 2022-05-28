@@ -2,6 +2,8 @@ package HSMS.ApplicationTypes;
 
 import HSMS.Owner.Resident;
 
+import java.util.Date;
+
 public class EtagApplication extends Application{
 
     String OFName;
@@ -77,4 +79,7 @@ public class EtagApplication extends Application{
     }
 
 
+    public Date getDate() {
+        return this.applyingDate;
+    }
 }

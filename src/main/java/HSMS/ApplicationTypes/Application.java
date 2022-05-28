@@ -10,6 +10,11 @@ public abstract class Application {
     Resident applicant;
     int ID;
     int type; // 1 => Registration, 2 => Transfer, 3 => Renting,  4 => ETagApplication
+
+    public void setApplicationStatus(String applicationStatus) {
+        this.applicationStatus = applicationStatus;
+    }
+
     String applicationStatus; // A = Approved ,  R = Rejected , NE =  NotEvaluated
     Date applyingDate;
 

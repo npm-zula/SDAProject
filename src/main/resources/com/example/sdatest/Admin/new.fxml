@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import javafx.scene.paint.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -9,8 +10,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
 <?import javafx.collections.FXCollections?>
+
 <StackPane fx:id="mainPane" prefHeight="583.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdatest.Login">
     <children>
         <VBox prefHeight="547.0" prefWidth="713.0">
@@ -55,7 +56,7 @@
                   <HBox alignment="CENTER" prefHeight="25.0" prefWidth="340.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="101.0" text="Choose Role:" textFill="#006581" />
-                        <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="106.0" >
+                        <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="106.0">
                          <items>
                              <FXCollections fx:factory="observableArrayList">
 
@@ -75,7 +76,7 @@
                                         <Image url="@../../../../../../../../Downloads/javafx_school_management_system-master/javafx_school_management_system-master/src/schoolmanagement/resource/image/icons8_user_64px.png" />
                                     </image>
                                 </ImageView>
-                        <TextField />
+                        <TextField fx:id="userName" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="69.0" prefWidth="374.0">
@@ -88,7 +89,7 @@
 
                                     </HBox.margin>
                                 </ImageView>
-                        <PasswordField />
+                        <PasswordField fx:id="password" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="69.0" prefWidth="374.0">

@@ -4,18 +4,8 @@ import HSMS.Applicant.ApplicantRecords;
 
 import java.util.HashMap;
 
-public class Owner {
-    private String firstName;
-    private String lastName;
-    private int age;
-    private String cNIC;
-    private String emailAddress;
-    private String password;
+public class Owner extends Resident {
 
-
-
-
-    private HashMap<String, ApplicantRecords> applications=new HashMap<>();
 
 
 
@@ -23,7 +13,7 @@ public class Owner {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.cNIC = cNIC;
+        this.cnic = cNIC;
         this.emailAddress = emailAddress;
         this.password = password;
     }
@@ -49,11 +39,11 @@ public class Owner {
     }
 
     public String getcNIC() {
-        return cNIC;
+        return cnic;
     }
 
     public void setcNIC(String cNIC) {
-        this.cNIC = cNIC;
+        this.cnic = cNIC;
     }
 
     public String getEmailAddress() {
@@ -73,7 +63,7 @@ public class Owner {
         return password;
     }
     public boolean login(String cNIC,String password){
-        if(this.password.equals(password)&&this.cNIC.equals(cNIC)){
+        if(this.password.equals(password)&&this.cnic.equals(cNIC)||this.emailAddress.equals(cNIC)){
 return true;
         }
         return false;

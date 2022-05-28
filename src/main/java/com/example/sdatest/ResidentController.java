@@ -56,7 +56,7 @@ public class ResidentController {
 
     @FXML
     public void MenuBtn(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Admin/new.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -211,6 +211,7 @@ public class ResidentController {
         Application app = getHsms().propertyTransApplication(OTrfname.getText(),OTrlname.getText(),Integer.parseInt(OTrCNIC.getText()),
                 OTofname.getText(),OTolname.getText(),Integer.parseInt(OToCNIC.getText()),OThouseNo.getText());
 
+
         Parent root1;
         String appID = String.valueOf(app.getID());
 
@@ -259,9 +260,9 @@ public class ResidentController {
 
     @FXML
     void createRPApplication(ActionEvent actionEvent) throws IOException {
-        Application app = getHsms().propertyRentingApplication(RPtfname.getText(),RPtlname.getText(),Integer.parseInt(RPtCNIC.getText()),
+        Application app = HSMS.getHsms().propertyRentingApplication(RPtfname.getText(),RPtlname.getText(),Integer.parseInt(RPtCNIC.getText()),
                 RPofname.getText(),RPolname.getText(),Integer.parseInt(RPoCNIC.getText()),Integer.parseInt(RPrent.getText()),Integer.parseInt(RPincrement.getText()));
-
+            HSMS.getHsms().checkOwner(RPHouseNo.getText(),RPoCNIC.getText());
         Parent root1;
         String appID = String.valueOf(app.getID());
 

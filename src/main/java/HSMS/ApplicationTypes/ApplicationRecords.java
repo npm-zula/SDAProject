@@ -206,8 +206,16 @@ public class ApplicationRecords {
     }
 
 
+    public ArrayList<EtagApplication> getEtagApps() {
+        return this.etagApplications;
+    }
+
+    public void updateApplicationStatus(String status, String applicationId) {
+        for(Application a: ApplicationRecord){
+            if (a.getID()== Integer.parseInt(applicationId))
+                a.setApplicationStatus(status);
+        }
 
 
-
-
+    }
 }

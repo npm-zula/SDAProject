@@ -6,4 +6,6 @@ module com.example.sdatest {
 
     opens com.example.sdatest to javafx.fxml;
     exports com.example.sdatest;
+    exports HSMS;
+    opens HSMS to javafx.fxml;
 }
