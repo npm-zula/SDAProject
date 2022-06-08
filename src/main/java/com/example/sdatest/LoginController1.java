@@ -22,7 +22,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class LoginController {
+public class LoginController1 {
 
     @FXML
     private ResourceBundle resources;
@@ -64,32 +64,32 @@ public class LoginController {
 
     @FXML
     private Button SignIn;
-    @FXML
-    void handleSignin(ActionEvent event) throws IOException {
-        if(role.getValue().equalsIgnoreCase("Resident")){
-            if(HSMS.getHsms().residentLogin(userName.getText(),password.getText())!=null){
-            }
-            else{
-                return;
-            }
-            Resident obj=HSMS.getHsms().residentLogin(userName.getText(),password.getText());
-            ResidentController.owner=obj;
-
-            root = FXMLLoader.load(getClass().getResource("Resident/ResidentDashboard.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } else if (role.getValue().equalsIgnoreCase("Admin")) {
-
-            //ResidentController.setName(obj.getFirstName());
-            root = FXMLLoader.load(getClass().getResource("Admin/Admin.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }
-    }
+//    @FXML
+//    void handleSignin(ActionEvent event) throws IOException {
+//        if(role.getValue().equalsIgnoreCase("Resident")){
+//            if(HSMS.getHsms().residentLogin(userName.getText(),password.getText())!=null){
+//            }
+//            else{
+//                return;
+//            }
+//            Resident obj=HSMS.getHsms().residentLogin(userName.getText(),password.getText());
+//            ResidentController1.owner=obj;
+//
+//            root = FXMLLoader.load(getClass().getResource("Resident/ResidentDashboard.fxml"));
+//            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//            scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
+//        } else if (role.getValue().equalsIgnoreCase("Admin")) {
+//
+//            //ResidentController.setName(obj.getFirstName());
+//            root = FXMLLoader.load(getClass().getResource("Admin/Admin.fxml"));
+//            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//            scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
+//        }
+//    }
 
     @FXML
     public void BackBtn(ActionEvent actionEvent) throws IOException {

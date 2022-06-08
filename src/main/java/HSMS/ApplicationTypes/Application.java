@@ -41,6 +41,23 @@ public abstract class Application extends ApplicationRecords {
         return type;
     }
 
+    public String getApplicationType(){
+        if(type == 1){
+            return "Registration Application";
+        }
+        if(type == 2){
+            return "Transfer Application";
+        }
+        if(type == 3){
+            return "Renting Application";
+        }
+        if(type == 4){
+            return "Etag Application";
+        }
+
+        return null;
+    }
+
     public void setApplicationStatus(String applicationStatus) {
         this.applicationStatus = applicationStatus;
     }

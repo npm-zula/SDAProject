@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,18 +17,25 @@ public class Test extends Application {
     private Scene scene;
     private Parent root;
 
+    private double x, y;
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Test.class.getResource("dashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Test.class.getResource("newUI/Login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+
         stage.setTitle("HSMS");
         stage.setScene(scene);
+
         stage.show();
+
     }
 
     public static void main(String[] args) throws SQLException {
         getHsms().start();
-        launch();
+        launch(args);
     }
 
 

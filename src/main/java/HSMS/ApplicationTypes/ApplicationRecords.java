@@ -8,12 +8,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ApplicationRecords extends HSMS {
+public class ApplicationRecords  {
 
     ArrayList<Application> ApplicationRecord = new ArrayList<Application>();
     ArrayList<EtagApplication> etagApplications = new ArrayList<EtagApplication>();
+    ArrayList<RentingApplication> RentingApplications = new ArrayList<RentingApplication>();
+    ArrayList<OwnerTransferApplication> TransferApplications = new ArrayList<OwnerTransferApplication>();
+    ArrayList<RegistrationApplication> PropRegApplications = new ArrayList<RegistrationApplication>();
     ApplicationDBhandler db = new ApplicationDBhandler();
 
+
+    public ArrayList<OwnerTransferApplication> getTransferApplications() {
+        return TransferApplications;
+    }
+
+    public ArrayList<RentingApplication> getRentingApplications() {
+        return RentingApplications;
+    }
 
     private int assignID(){
         int t = 0;
@@ -50,6 +61,34 @@ public class ApplicationRecords extends HSMS {
             if (a.getID() == ID)
                 return a;
         }
+        return null;
+    }
+
+    public Application getApplication(int type, int ID){
+        if(type == 1){
+            for(RegistrationApplication a: PropRegApplications){
+                if (a.getID() == ID)
+                    return a;
+            }
+        }
+        if(type == 2){
+            for(OwnerTransferApplication a: TransferApplications){
+                if (a.getID() == ID)
+                    return a;
+            }
+        }
+        if(type == 3){
+            for(RentingApplication a: RentingApplications){
+                if (a.getID() == ID)
+                    return a;
+            }
+        }
+        if(type == 4){
+            for(EtagApplication a: etagApplications){
+                if (a.getID() == ID)
+                    return a;
+            }
+        }
 
         return null;
     }
@@ -68,6 +107,7 @@ public class ApplicationRecords extends HSMS {
         temp.ID = assignID();
         temp.applicationStatus = "NE";
         ApplicationRecord.add(temp);
+        PropRegApplications.add(temp);
         db.saveRegApplication(temp);
 
         return temp;
@@ -85,6 +125,7 @@ public class ApplicationRecords extends HSMS {
         temp.ID = assignID();
         temp.applicationStatus = "NE";
         ApplicationRecord.add(temp);
+        TransferApplications.add(temp);
         db.saveOTApplication(temp);
         return temp;
     }
@@ -103,6 +144,7 @@ public class ApplicationRecords extends HSMS {
         temp.type = 3;
         temp.applicationStatus = "NE";
         ApplicationRecord.add(temp);
+        RentingApplications.add(temp);
         db.saveRentingApplication(temp);
         return temp;
     }
@@ -122,8 +164,9 @@ public class ApplicationRecords extends HSMS {
         temp.ID = assignID();
         temp.applicationStatus = "NE";
         ApplicationRecord.add(temp);
+        etagApplications.add(temp);
 
-        System.out.println("CREATED");
+        //System.out.println("CREATED");
         db.saveEtagApplication(temp);
         return temp;
     }
@@ -153,6 +196,7 @@ public class ApplicationRecords extends HSMS {
                 temp.applicant.setEmailAddress(rs.getString("AEmailAddress"));
                 temp.applicationStatus = rs.getString("ApplicationStatus");
                 ApplicationRecord.add(temp);
+                PropRegApplications.add(temp);
             }
         }
     }
@@ -173,6 +217,7 @@ public class ApplicationRecords extends HSMS {
                 temp.type = rs.getInt("ApplicationType");
                 temp.applicationStatus = rs.getString("ApplicationStatus");
                 ApplicationRecord.add(temp);
+                TransferApplications.add(temp);
             }
         }
     }
@@ -194,6 +239,7 @@ public class ApplicationRecords extends HSMS {
             temp.type = rs.getInt("ApplicationType");
             temp.applicationStatus = rs.getString("ApplicationStatus");
             ApplicationRecord.add(temp);
+            RentingApplications.add(temp);
         }
     }
 
@@ -214,7 +260,9 @@ public class ApplicationRecords extends HSMS {
             temp.type = rs.getInt("ApplicationType");
             //System.out.println(rs.getInt("ApplicationType"));
             temp.applicationStatus = rs.getString("ApplicationStatus");
+            temp.oCnic = rs.getInt("oCNIC");
             ApplicationRecord.add(temp);
+            etagApplications.add(temp);
         }
     }
 
@@ -232,8 +280,25 @@ public class ApplicationRecords extends HSMS {
 
     public void updateApplicationStatus(String status, String applicationId) {
         for(Application a: ApplicationRecord){
-            if (a.getID()== Integer.parseInt(applicationId))
+            if (a.getID()== Integer.parseInt(applicationId)){
                 a.setApplicationStatus(status);
+                if(a.getType() == 1){
+                  int var = PropRegApplications.indexOf(a);
+                    (PropRegApplications.get(var)).setApplicationStatus(status);
+                }
+                if(a.getType() == 2){
+                    int var = TransferApplications.indexOf(a);
+                    (TransferApplications.get(var)).setApplicationStatus(status);
+                }
+                if(a.getType() == 3){
+                    int var = RentingApplications.indexOf(a);
+                    (RentingApplications.get(var)).setApplicationStatus(status);
+                }
+                if(a.getType() == 4){
+                    int var = etagApplications.indexOf(a);
+                    (etagApplications.get(var)).setApplicationStatus(status);
+                }
+            }
         }
     }
 

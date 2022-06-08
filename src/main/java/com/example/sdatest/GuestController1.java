@@ -16,7 +16,7 @@ import java.io.IOException;
 
 import static HSMS.HSMS.getHsms;
 
-public class GuestController {
+public class GuestController1 {
 
     private Stage stage;
     private Scene scene;

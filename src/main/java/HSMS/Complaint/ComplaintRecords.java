@@ -13,6 +13,10 @@ public class ComplaintRecords extends ApplicationRecords {
     ArrayList<Complaint> ComplaintRecord = new ArrayList<>();
     ComplaintsDBHandler db = new ComplaintsDBHandler();
 
+    public ArrayList<Complaint> getComplaintRecord() {
+        return ComplaintRecord;
+    }
+
     public int genID(){
         int min = 10000;
         int max = 20000;
@@ -70,10 +74,19 @@ public class ComplaintRecords extends ApplicationRecords {
                 temp.houseNo = rs.getString("HouseNo");
                 temp.emailAddress = rs.getString("EmailAddress");
                 temp.problem = rs.getString("Problem");
+                temp.setComplaintStatus(rs.getString("status"));
+                ComplaintRecord.add(temp);
             }
         }
-
     }
 
+    public void updateComplaintStatus(String status, String compId) {
+        for(Complaint a: ComplaintRecord) {
+            if (a.getID() == Integer.parseInt(compId)){
+                a.setComplaintStatus(status);
+                db.udpateDB(a);
+            }
+        }
+    }
 
 }

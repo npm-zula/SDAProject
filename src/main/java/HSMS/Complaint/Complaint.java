@@ -14,6 +14,14 @@ public class Complaint {
             return "SOLVED";
     }
 
+    public String getStatus(){
+        return complaintStatus;
+    }
+
+    public void setComplaintStatus(String complaintStatus) {
+        this.complaintStatus = complaintStatus;
+    }
+
     public int getID() {
         return ID;
     }

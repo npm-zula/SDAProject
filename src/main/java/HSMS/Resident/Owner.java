@@ -8,7 +8,6 @@ public class Owner extends Resident {
         this.age = age;
         this.cnic = cNIC;
         this.emailAddress = emailAddress;
-        this.password = password;
     }
 
     public String getFirstName() {
@@ -55,11 +54,12 @@ public class Owner extends Resident {
     public String getPassword() {
         return password;
     }
-    public boolean login(String cNIC,String password){
-        if(this.password.equals(password)&&this.cnic.equals(cNIC)||this.emailAddress.equals(cNIC)){
-            return true;
-        }
-        return false;
-    }
+//
+//    public boolean loginVerification(String cNIC, String password){
+//        if(this.password.equals(password)&&this.cnic.equals(cNIC)||this.emailAddress.equals(cNIC)){
+//            return true;
+//        }
+//        return false;
+//    }
 
 }

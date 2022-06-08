@@ -3,11 +3,11 @@ package com.example.sdatest;
 import javafx.beans.property.SimpleStringProperty;
 public class TableData {
 
-     SimpleStringProperty data1=new SimpleStringProperty();
-     SimpleStringProperty data2=new SimpleStringProperty();
-     SimpleStringProperty data3=new SimpleStringProperty();
-    SimpleStringProperty data4=new SimpleStringProperty();;
-    SimpleStringProperty data5=new SimpleStringProperty();;
+        SimpleStringProperty data1=new SimpleStringProperty();
+        SimpleStringProperty data2=new SimpleStringProperty();
+        SimpleStringProperty data3=new SimpleStringProperty();
+        SimpleStringProperty data4=new SimpleStringProperty();;
+        SimpleStringProperty data5=new SimpleStringProperty();;
 
     public String getData1() {
         return data1.get();
@@ -81,6 +81,11 @@ public class TableData {
         this.data3 = new SimpleStringProperty(data3);
         this.data4 = new SimpleStringProperty(data4);
         this.data5=  new SimpleStringProperty(data5);
+    }
+
+    TableData(String data1, String data2) {
+        this.data1 = new SimpleStringProperty(data1);
+        this.data2 = new SimpleStringProperty(data2);
     }
 
 

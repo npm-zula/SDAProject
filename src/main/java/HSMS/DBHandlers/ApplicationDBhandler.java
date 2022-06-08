@@ -40,7 +40,7 @@ public class ApplicationDBhandler {
     }
 
     public void saveRentingApplication(RentingApplication application){
-        String sql = "insert into Renting_Applications ( ID,OFName, OLName, oCNIC, RFName,RLName, RCNIC, RENT, INCREMENT,ApplicationType, ApplicationStatus) VALUES(?,?,?, ?, ?, ?,?, ?, ?, ?,?, ?, ?, ?,?)";
+        String sql = "insert into Renting_Applications ( ID,OFName, OLName, oCNIC, RFName,RLName, RCNIC, RENT, INCREMENT,ApplicationType, ApplicationStatus) VALUES(?, ?,?, ?, ?, ?,?, ?, ?, ?,?)";
         try {
             String url = "jdbc:jtds:sqlserver://ZULA:1433/newHSMS;instance=SQLEXPRESS";
             //String url ="jdbc:sqlserver://ZULA:1433;databaseName=HSMS;integratedSecurity=true";
@@ -57,6 +57,7 @@ public class ApplicationDBhandler {
             st.setString(8, String.valueOf(application.getRent()));
             st.setString(9, String.valueOf(application.getIncrement()));
             st.setString(10, String.valueOf(application.getType()));
+            st.setString(11,application.getStatus());
             st.executeUpdate();
             conn.close();
         } catch (Exception e) {

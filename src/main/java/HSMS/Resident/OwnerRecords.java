@@ -26,8 +26,6 @@ public class OwnerRecords {
     }
 
 
-
-
     public boolean checkOwner(String hNo,String ownerId){
         if(this.ownerRecords.get(ownerId)!=null){
             Resident temp=this.ownerRecords.get(ownerId);
@@ -47,17 +45,15 @@ public class OwnerRecords {
         return ownerRecords.get(cnic);
 
     }
-    Owner Login(String cNIC,String password){
-
-        for (Map.Entry<String, Owner> set : ownerRecords.entrySet()) {
-            Owner objOwner=set.getValue();
-            if (objOwner.login(cNIC,password))
-                return objOwner;
-        }
-
-
-        return null;
-    }
+//    Owner Login(String cNIC,String password){
+//
+//        for (Map.Entry<String, Owner> set : ownerRecords.entrySet()) {
+//            Owner objOwner=set.getValue();
+//            if (objOwner.loginVerification(cNIC,password))
+//                return objOwner;
+//        }
+//        return null;
+//    }
 
 
 

@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class Resident {
     protected int age;
-    private int ID;
+    //private int ID;
     String firstName;
     String lastName;
     protected String cnic;
@@ -18,12 +18,21 @@ public class Resident {
     private ArrayList<Application> apps=new ArrayList<Application>();
 
 
-    Resident(){
+    public Resident(){
 
     }
 
-    public int getID() {
-        return ID;
+//    public int getID() {
+//        return ID;
+//    }
+
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getFirstName() {
@@ -58,8 +67,8 @@ public class Resident {
         this.emailAddress = emailAddress;
     }
 
-    public Resident( String firstName, String lastName,int ID, String cnic, String emailAddress,String password,House house) {
-        this.ID = ID;
+    public Resident( String firstName, String lastName, int age, String cnic, String emailAddress,String password,House house) {
+        //this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.cnic = cnic;
@@ -78,23 +87,26 @@ public class Resident {
 
 
 
-    public boolean login(String cNIC,String password){
-        if(this.password.equals(password)&&this.cnic.equals(cNIC)||this.emailAddress.equals(cNIC)){
+    public boolean loginVerification(String cNIC, String password){
+        if(this.password.equals(password)&&this.cnic.equals(cNIC)){
             return true;
         }
         return false;
     }
+
     public void addApplications(Application application){
         this.apps.add(application);
     }
+
     public boolean hasHouse(String iD){
         if(this.houses.get(iD)!=null)
             return true;
         return false;
     }
+
+
     public void alotHouse(House obj){
         this.houses.put(obj.gethNo(),obj);
-
     }
 
 

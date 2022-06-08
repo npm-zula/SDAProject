@@ -17,7 +17,7 @@ import java.io.IOException;
 
 import static HSMS.HSMS.getHsms;
 
-public class ResidentController {
+public class ResidentController1 {
 
     public static Resident owner;
     private Stage stage;
@@ -167,7 +167,6 @@ public class ResidentController {
 
     //OT APPLICATION
 
-
     @FXML
     private TextField OTapplicantID;
 
@@ -194,8 +193,8 @@ public class ResidentController {
 
     @FXML
     void createOTApplication(ActionEvent actionEvent) throws IOException {
-        Application app = getHsms().propertyTransApplication(OTrfname.getText(),OTrlname.getText(),Integer.parseInt(OTrCNIC.getText()),
-                OTofname.getText(),OTolname.getText(),Integer.parseInt(OToCNIC.getText()),OThouseNo.getText());
+        Application app = getHsms().propertyTransApplication(OTrfname.getText(), OTrlname.getText(), Integer.parseInt(OTrCNIC.getText()),
+                OTofname.getText(), OTolname.getText(), Integer.parseInt(OToCNIC.getText()), OThouseNo.getText());
 
         Parent root1;
         String appID = String.valueOf(app.getID());
@@ -209,8 +208,8 @@ public class ResidentController {
         Stage stage1 = new Stage();
         stage1.setScene(new Scene(root1));
         stage1.show();
-    }
 
+    }
     //RENTING APPLICATION
 
     @FXML
@@ -357,6 +356,7 @@ public class ResidentController {
         Parent root1 = (Parent) fxmlLoader.load();
 
         Application application = getHsms().getApplicationStatus(Integer.parseInt(appIDStatusField.getText()));
+
 
         ApplicationStatusPOPUPController a = fxmlLoader.getController();
         a.display(String.valueOf(application.getID()) ,application.getApplicationStatus(),application.getApplicant().getFirstName() + " " + application.getApplicant().getLastName());
